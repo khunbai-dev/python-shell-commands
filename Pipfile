@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+alive-progress = "==3.0.0"
+pick = "==2.2.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
+python_full_version = "3.8.10"
