@@ -6,7 +6,7 @@ def show_menu():
   quit = False
 
   while not quit:
-    title = 'Please choose command in [Disk] menu: '
+    title = 'Please choose command in [Installation] menu: '
     options = [
       'Install Nerd Fonts',
       '<- Go back to main menu',
@@ -25,6 +25,7 @@ def show_menu():
       quit = True
 
   print(color('Exit', '5;31;40'))
+
 
 def install_nerd_font():
     # Clear screen

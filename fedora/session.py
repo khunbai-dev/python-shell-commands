@@ -1,5 +1,33 @@
 import subprocess, os
 from pick import pick
+from shared.text_color import color
+
+
+def show_menu():
+  quit = False
+
+  while not quit:
+    title = 'Please choose command in [Session] menu: '
+    options = [
+      'Check running session (X11 or Wayland)',
+      '<- Go back to main menu',
+      '[x] Quit Program',
+    ]
+    option, index = pick(options, title)
+
+    if option == 'Check running session (X11 or Wayland)':
+      os.system('clear')
+      session_type_check()
+      input("Press Enter to continue...")
+
+    if option == '<- Go back to main menu':
+      quit = True
+      from .fedora import show_main_menu
+      show_main_menu()
+
+    if option == '[x] Quit Program':
+      os.system('clear')
+      exit()
 
 
 def session_type_check():

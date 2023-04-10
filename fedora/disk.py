@@ -20,16 +20,17 @@ def show_menu():
     option, index = pick(options, title)
 
     if option == 'List all disk and partition with type':
+      os.system('clear')
       output = subprocess.check_output('lsblk --output NAME,SIZE,TYPE,FSTYPE', shell=True, text=True)
       print(output)
 
       input("Press Enter to continue...")
 
     if option == '<- Go back to main menu':
+      quit = True
       from .fedora import show_main_menu
       show_main_menu()
 
     if option == '[x] Quit Program':
-      quit = True
-
-  print(color('Exit', '5;31;40'))
+      os.system('clear')
+      exit()
