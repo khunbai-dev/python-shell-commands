@@ -24,7 +24,7 @@ def show_main_menu():
     session.session_type_check()
 
   if option == '[Installation]':
-    install.show_menu()()
+    install.show_menu()
 
   if option == '[Disk Manager]':
     disk.show_menu()
