@@ -1,6 +1,30 @@
 import subprocess, os, getpass
 from pick import pick
+from shared.text_color import color
 
+def show_menu():
+  quit = False
+
+  while not quit:
+    title = 'Please choose command in [Disk] menu: '
+    options = [
+      'Install Nerd Fonts',
+      '<- Go back to main menu',
+      '[x] Quit Program',
+    ]
+    option, index = pick(options, title)
+
+    if option == 'Install Nerd Fonts':
+      install_nerd_font()
+
+    if option == '<- Go back to main menu':
+      from .fedora import show_main_menu
+      show_main_menu()
+
+    if option == '[x] Quit Program':
+      quit = True
+
+  print(color('Exit', '5;31;40'))
 
 def install_nerd_font():
     # Clear screen
