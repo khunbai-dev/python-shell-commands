@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import argparse, subprocess
+import argparse, subprocess, time
 
 from shared.text_color import color, print_format_table
 
@@ -9,9 +9,20 @@ def debug():
   # print_format_table()
   # subprocess.run('mkdir -p /home/khunbai/test22', shell=True)
   # subprocess.run('echo {password} | sudo -S mkdir -p /mnt/test33', shell=True)
+  pass
 
-  print('Please specific option.')
 
+
+def option_notice():
+  '''
+  desc: Notice user to specific any option for using the program and exit.
+  '''
+  print('Please specific option to use the program. Ex. -f --fedora')
+  for x in range (0,5):  
+    b = "Exiting program" + " ." * x
+    print (b, end="\r")
+    time.sleep(1)
+  print("Exiting the program . . . .")
   return
 
 
@@ -23,12 +34,12 @@ def main():
     description="Description of the program.",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
   )
-  parser.add_argument("-f", "--fedora", action="store_true", help="Run usually command application on Fedora.")
+  parser.add_argument("-f", "--fedora", action="store_true", help="Run command application on Fedora.")
   args = parser.parse_args()
   # config = vars(args)
   # print(config)
 
-  func = debug
+  func = option_notice
 
   if args.fedora:
     from fedora import fedora
