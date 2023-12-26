@@ -34,17 +34,26 @@ def main():
     description="Description of the program.",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
   )
+  parser.add_argument("-p", "--print-color-table", action="store_true", help="Print color table.")
   parser.add_argument("-f", "--fedora", action="store_true", help="Run command application on Fedora.")
+  parser.add_argument("-u", "--ubuntu", action="store_true", help="Run command application on Ubuntu.")
   args = parser.parse_args()
   # config = vars(args)
   # print(config)
 
   func = option_notice
 
+  if args.print_color_table:
+    func = print_format_table
+
   if args.fedora:
     from fedora import fedora
     func = fedora.show_main_menu
     # print(args.fedora)
+
+  if args.ubuntu:
+     from ubuntu import ubuntu
+     func = ubuntu.show_main_menu
 
   # No specific option
   func()

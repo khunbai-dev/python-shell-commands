@@ -6,8 +6,8 @@ from shared.text_color import color
 def show_main_menu():
   title = 'Please choose Fedora program menu: '
   options = [
-    '[Network]',
-    '[Session]',
+    f'[Network]         Total menu num. = {len(network.OPTION_LIST)}',
+    f'[Session]         Total menu num. = {len(session.OPTION_LIST)}',
     '[Installation]',
     '[Disk Manager]',
     '[x] Quit Program'

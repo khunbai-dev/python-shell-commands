@@ -3,6 +3,9 @@ import os
 from pick import pick
 from shared.text_color import color
 
+OPTION_LIST = [
+  'List available samba shared directory'
+]
 
 def show_menu():
   quit = False
@@ -10,13 +13,13 @@ def show_menu():
   while not quit:
     title = 'Please choose command in [Session] menu: '
     options = [
-      'List available samba shared directory',
+      OPTION_LIST[0],
       '<- Go back to main menu',
       '[x] Quit Program',
     ]
     option, index = pick(options, title)
 
-    if option == 'List available samba shared directory':
+    if option == OPTION_LIST[0]:
       os.system('clear')
       list_available_samba()
       input("Press Enter to continue...")
@@ -37,7 +40,7 @@ def list_available_samba():
     os.system('clear')
 
     print('')
-    ip = input('  Enter samba server ip: ')
+    ip = input('  Enter samba server ip (e.g. 192.168.1.20, samba.lan): ')
     # subprocess.run(f'smbclient -L {ip} -N', shell=True)
     output = subprocess.check_output(f'smbclient -L {ip} -N', shell=True, text=True)
     output = output.replace('\t', '')
